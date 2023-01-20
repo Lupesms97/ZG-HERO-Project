@@ -1,6 +1,6 @@
 package org.example.model;
 
-import java.net.PasswordAuthentication;
+
 import java.util.Date;
 
 public class Empresa {
