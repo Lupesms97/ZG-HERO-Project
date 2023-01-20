@@ -62,4 +62,6 @@ public class Empresa {
     public void setDataFundação(Date dataFundação) {
         this.dataFundação = dataFundação;
     }
+    //verificar formas de fazer
+
 }
