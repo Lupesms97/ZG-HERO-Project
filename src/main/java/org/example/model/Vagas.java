@@ -1,26 +1,37 @@
 package org.example.model;
 
+import java.util.List;
+
 public class Vagas {
-    private double salrio;
+    private double salario;
     private String localizacao;
 
     private String tipoContrato;
 
     private String descricaoVaga;
+    private List<Candidato> candidatoesDisponiveis;
 
-    public Vagas(double salrio, String localizacao, String tipoContrato, String descricaoVaga) {
-        this.salrio = salrio;
+    public Vagas(double salario, String localizacao, String tipoContrato, String descricaoVaga) {
+        this.salario = salario;
         this.localizacao = localizacao;
         this.tipoContrato = tipoContrato;
         this.descricaoVaga = descricaoVaga;
     }
 
-    public double getSalrio() {
-        return salrio;
+    public List<Candidato> getCandidatoesDisponiveis() {
+        return candidatoesDisponiveis;
     }
 
-    public void setSalrio(double salrio) {
-        this.salrio = salrio;
+    public void setCandidatoesDisponiveis(List<Candidato> candidatoesDisponiveis) {
+        this.candidatoesDisponiveis = candidatoesDisponiveis;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 
     public String getLocalizacao() {

@@ -1,9 +1,9 @@
 package org.example.model;
 
-import java.net.PasswordAuthentication;
 import java.util.Date;
+import java.util.List;
 
-public class Candidato {
+public class Candidato extends Match {
 //    username
     private String email;
     private char senha;
@@ -12,6 +12,7 @@ public class Candidato {
     private String cidade;
     private String areaDeAtuacao;
     private int tempoDeExperiencia;
+    private List<Vagas> liked;
 
     public Candidato(String email, char senha) {
         this.email = email;
@@ -30,6 +31,14 @@ public class Candidato {
 
     public Candidato() {
 
+    }
+
+    public List<Vagas> getLiked() {
+        return liked;
+    }
+
+    public void setLiked(List<Vagas> liked) {
+        this.liked = liked;
     }
 
     public String getEmail() {
@@ -87,7 +96,32 @@ public class Candidato {
     public void setTempoDeExperiencia(int tempoDeExperiencia) {
         this.tempoDeExperiencia = tempoDeExperiencia;
     }
+
+    public List VagaCurtida(Vagas vaga){
+        liked.add(vaga);
+        return getLiked();
+    }
+
+    private void liked(Vagas vaga) {
+    }
+
+    @Override
+    public void Deslike(int i) {
+        super.Deslike(i);
+    }
+
+    @Override
+    public void Like(Vagas vaga) {
+        super.Like(vaga);
+    }
+    @Override
+    public void Match(Candidato candidato, Empresa empresa, Vagas vaga){
+
+    }
+    @Override
+    public void EnviarMensagem(){}
 }
+
 
 
 

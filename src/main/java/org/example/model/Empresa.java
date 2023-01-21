@@ -2,14 +2,16 @@ package org.example.model;
 
 
 import java.util.Date;
+import java.util.List;
 
-public class Empresa {
+public class Empresa extends Match {
     private String cnpj;
     private char senha;
     private String nome;
     private int quantidadeFuncionario;
     private Date dataFundacao;
     private Vagas vaga;
+    private List<Candidato> candidatosAprovados;
 
     public Empresa() {
 
@@ -78,4 +80,10 @@ public class Empresa {
     public void setVaga(Vagas vaga) {
         this.vaga = vaga;
     }
+
+
+    public void Like(Candidato candidato) {
+        candidatosAprovados.add(candidato);
+    }
+
 }
