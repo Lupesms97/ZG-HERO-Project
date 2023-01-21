@@ -11,13 +11,11 @@ abstract class Match {
         this.like = like;
     }
 
-    public int Like(){
+    public void Like(){
         setLike(0);
-        return like;
     }
-    public int Deslike(){
+    public void Deslike(){
         setLike(1);
-        return like;
     }
     public void Match(){}
     public void EnviarMensagem(){}
