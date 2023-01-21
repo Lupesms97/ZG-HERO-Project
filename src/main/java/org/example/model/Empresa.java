@@ -8,7 +8,12 @@ public class Empresa {
     private char senha;
     private String nome;
     private int quantidadeFuncionario;
-    private Date dataFundação;
+    private Date dataFundacao;
+    private Vagas vaga;
+
+    public Empresa() {
+
+    }
 
     public Empresa(String cnpj, char senha) {
         this.cnpj = cnpj;
@@ -20,7 +25,8 @@ public class Empresa {
         this.senha = senha;
         this.nome = nome;
         this.quantidadeFuncionario = quantidadeFuncionario;
-        this.dataFundação = dataFundação;
+        this.dataFundacao = dataFundação;
+        this.vaga = vaga;
     }
 
     public String getCnpj() {
@@ -55,13 +61,21 @@ public class Empresa {
         this.quantidadeFuncionario = quantidadeFuncionario;
     }
 
-    public Date getDataFundação() {
-        return dataFundação;
+    public Date getDataFundacao() {
+        return dataFundacao;
     }
 
-    public void setDataFundação(Date dataFundação) {
-        this.dataFundação = dataFundação;
+    public void setDataFundacao(Date dataFundacao) {
+        this.dataFundacao = dataFundacao;
     }
     //verificar formas de fazer
 
+
+    public Vagas getVaga() {
+        return vaga;
+    }
+
+    public void setVaga(Vagas vaga) {
+        this.vaga = vaga;
+    }
 }

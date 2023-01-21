@@ -28,6 +28,10 @@ public class Candidato {
         this.tempoDeExperiencia = tempoDeExperiencia;
     }
 
+    public Candidato() {
+
+    }
+
     public String getEmail() {
         return email;
     }
