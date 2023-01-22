@@ -102,24 +102,8 @@ public class Candidato extends Match {
         return getLiked();
     }
 
-    private void liked(Vagas vaga) {
-    }
 
-    @Override
-    public void Deslike(int i) {
-        super.Deslike(i);
-    }
 
-    @Override
-    public void Like(Vagas vaga) {
-        super.Like(vaga);
-    }
-    @Override
-    public void Match(Candidato candidato, Empresa empresa, Vagas vaga){
-
-    }
-    @Override
-    public void EnviarMensagem(){}
 }
 
 

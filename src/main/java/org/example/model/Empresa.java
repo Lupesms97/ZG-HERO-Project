@@ -1,15 +1,16 @@
 package org.example.model;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class Empresa extends Match {
     private String cnpj;
-    private char senha;
+    private String senha;
     private String nome;
     private int quantidadeFuncionario;
-    private Date dataFundacao;
+    private LocalDate dataFundacao;
     private Vagas vaga;
     private List<Candidato> candidatosAprovados;
 
@@ -17,17 +18,17 @@ public class Empresa extends Match {
 
     }
 
-    public Empresa(String cnpj, char senha) {
+    public Empresa(String cnpj, String senha) {
         this.cnpj = cnpj;
         this.senha = senha;
     }
 
-    public Empresa(String cnpj, char senha, String nome, int quantidadeFuncionario, Date dataFundação) {
+    public Empresa(String cnpj, String senha, String nome, int quantidadeFuncionario, LocalDate dataFundacao) {
         this.cnpj = cnpj;
         this.senha = senha;
         this.nome = nome;
         this.quantidadeFuncionario = quantidadeFuncionario;
-        this.dataFundacao = dataFundação;
+        this.dataFundacao = dataFundacao;
         this.vaga = vaga;
     }
 
@@ -39,11 +40,11 @@ public class Empresa extends Match {
         this.cnpj = cnpj;
     }
 
-    public char getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(char senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
@@ -63,15 +64,6 @@ public class Empresa extends Match {
         this.quantidadeFuncionario = quantidadeFuncionario;
     }
 
-    public Date getDataFundacao() {
-        return dataFundacao;
-    }
-
-    public void setDataFundacao(Date dataFundacao) {
-        this.dataFundacao = dataFundacao;
-    }
-    //verificar formas de fazer
-
 
     public Vagas getVaga() {
         return vaga;
@@ -81,9 +73,40 @@ public class Empresa extends Match {
         this.vaga = vaga;
     }
 
-
-    public void Like(Candidato candidato) {
-        candidatosAprovados.add(candidato);
+    public LocalDate getDataFundacao() {
+        return dataFundacao;
     }
 
+    public void setDataFundacao(LocalDate dataFundacao) {
+        this.dataFundacao = dataFundacao;
+    }
+
+    public void CandidatoCurtido(Candidato candidato) {
+        candidatosAprovados.add(candidato);
+
+    }
+    public void CriarVagas(){
+        Vagas vaga = new Vagas();
+
+    }
+    public List<String> mostrarCandidatoDisponiveis(Vagas vaga){
+        List<String> verCandidatos = null;
+        for (Candidato candidato: vaga.getCandidatoesDisponiveis()) {
+            verCandidatos.add(String.valueOf(candidato));
+        }
+        return verCandidatos;
+    }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "cnpj='" + cnpj + '\'' +
+                ", senha='" + senha + '\'' +
+                ", nome='" + nome + '\'' +
+                ", quantidadeFuncionario=" + quantidadeFuncionario +
+                ", dataFundacao=" + dataFundacao +
+                ", vaga=" + vaga +
+                ", candidatosAprovados=" + candidatosAprovados +
+                '}';
+    }
 }
