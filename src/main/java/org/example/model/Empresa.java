@@ -2,35 +2,35 @@ package org.example.model;
 
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa extends Match {
     private String cnpj;
-    private String senha;
+    private String senhaEmpresa;
     private String nome;
     private int quantidadeFuncionario;
     private LocalDate dataFundacao;
     private Vagas vaga;
-    private List<Candidato> candidatosAprovados;
+    private List<Vagas> vagsPublicada = new ArrayList<>();
+    private List<Candidato> empresaLikedCandidato;
 
-    public Empresa() {
-
-    }
+    public Empresa() {}
 
     public Empresa(String cnpj, String senha) {
         this.cnpj = cnpj;
-        this.senha = senha;
+        this.senhaEmpresa = senha;
     }
 
     public Empresa(String cnpj, String senha, String nome, int quantidadeFuncionario, LocalDate dataFundacao) {
         this.cnpj = cnpj;
-        this.senha = senha;
+        this.senhaEmpresa = senha;
         this.nome = nome;
         this.quantidadeFuncionario = quantidadeFuncionario;
         this.dataFundacao = dataFundacao;
         this.vaga = vaga;
     }
+
 
     public String getCnpj() {
         return cnpj;
@@ -40,12 +40,12 @@ public class Empresa extends Match {
         this.cnpj = cnpj;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSenhaEmpresa() {
+        return senhaEmpresa;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenhaEmpresa(String senhaEmpresa) {
+        this.senhaEmpresa = senhaEmpresa;
     }
 
     public String getNome() {
@@ -71,7 +71,9 @@ public class Empresa extends Match {
 
     public void setVaga(Vagas vaga) {
         this.vaga = vaga;
+        vagsPublicada.add(vaga);
     }
+
 
     public LocalDate getDataFundacao() {
         return dataFundacao;
@@ -82,31 +84,33 @@ public class Empresa extends Match {
     }
 
     public void CandidatoCurtido(Candidato candidato) {
-        candidatosAprovados.add(candidato);
-
+        empresaLikedCandidato.add(candidato);
     }
-    public void CriarVagas(){
-        Vagas vaga = new Vagas();
 
-    }
-    public List<String> mostrarCandidatoDisponiveis(Vagas vaga){
+    public List<String> mostrarCandidatoDisponiveis(Vagas vaga) {
         List<String> verCandidatos = null;
-        for (Candidato candidato: vaga.getCandidatoesDisponiveis()) {
+        for (Candidato candidato : vaga.getCandidatoesDisponiveis()) {
             verCandidatos.add(String.valueOf(candidato));
         }
         return verCandidatos;
     }
 
+    public void MostarVagsPublicadas() {
+        vagsPublicada.forEach(System.out::println);
+    }
+
+    static public void ImplmentaçãoCandidato(){}
+
+
+
     @Override
     public String toString() {
         return "Empresa{" +
                 "cnpj='" + cnpj + '\'' +
-                ", senha='" + senha + '\'' +
+                ", senha='" + senhaEmpresa + '\'' +
                 ", nome='" + nome + '\'' +
                 ", quantidadeFuncionario=" + quantidadeFuncionario +
                 ", dataFundacao=" + dataFundacao +
-                ", vaga=" + vaga +
-                ", candidatosAprovados=" + candidatosAprovados +
                 '}';
     }
 }

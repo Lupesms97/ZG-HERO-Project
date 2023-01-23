@@ -3,7 +3,7 @@ package org.example.model;
 import java.util.Date;
 import java.util.List;
 
-public class Candidato extends Match {
+public class Candidato extends Match implements User{
 //    username
     private String email;
     private char senha;
@@ -12,7 +12,7 @@ public class Candidato extends Match {
     private String cidade;
     private String areaDeAtuacao;
     private int tempoDeExperiencia;
-    private List<Vagas> liked;
+    private List<Vagas> candidatoLikedEmpresa;
 
     public Candidato(String email, char senha) {
         this.email = email;
@@ -33,12 +33,12 @@ public class Candidato extends Match {
 
     }
 
-    public List<Vagas> getLiked() {
-        return liked;
+    public List<Vagas> getCandidatoLikedEmpresa() {
+        return candidatoLikedEmpresa;
     }
 
-    public void setLiked(List<Vagas> liked) {
-        this.liked = liked;
+    public void setCandidatoLikedEmpresa(List<Vagas> candidatoLikedEmpresa) {
+        this.candidatoLikedEmpresa = candidatoLikedEmpresa;
     }
 
     public String getEmail() {
@@ -98,9 +98,11 @@ public class Candidato extends Match {
     }
 
     public List VagaCurtida(Vagas vaga){
-        liked.add(vaga);
-        return getLiked();
+        candidatoLikedEmpresa.add(vaga);
+        return getCandidatoLikedEmpresa();
     }
+
+
 
 
 
